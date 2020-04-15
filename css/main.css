@@ -247,7 +247,23 @@ iframe {
     text-align: center;
     margin-bottom: 5px;
     margin-top: 10px;
+    
+    display: flex;
+  align-items: center;
+  justify-content: center
 }
+
+.login100-form-title2 {
+  font-family: Poppins-Bold;
+  font-size: 20px;
+  color: #333333;
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+
+
 
 .login100-form-footer {
   font-family: Poppins-Bold;
@@ -354,6 +370,7 @@ iframe {
 [ Botones ]*/
 .container-login100-form-btn {
   width: 100%;
+    height: auto;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -454,6 +471,11 @@ Inicio Landing
   width: 100%;
   padding: 5px;
   /* countdown */
+}
+
+.countdown {
+    position: relative;
+    justify-content: center
 }
 
 #header h1 {
@@ -614,6 +636,7 @@ SLIDER */
     border-radius: 20px;
     background: white;
     overflow: hidden;
+    margin-bottom: 10px;
 }
 
 .ctn-form{
@@ -690,8 +713,7 @@ ANIMACIONES SLIDER */
 
   .login100-pic {
     width: auto;
-      height: 50%;
-    display: flex;
+    height: 20%;
   }
 
   .login100-form {
@@ -727,10 +749,6 @@ ANIMACIONES SLIDER */
         position: absolute;
         top: 0;    
         display: flex;
-        align-items: center;
-        justify-content: center;
-        display: none;
-        z-index: 1;
     }
     .modal-content img{
         display: none;
@@ -738,16 +756,25 @@ ANIMACIONES SLIDER */
     .login100-form-title{
         font-size: 12px;
     }
+    
+    .login100-form-title2{
+        display: block;
+    }
+    
+    
+    
+   
 }
 
 @media (max-width: 768px) {
   .wrap-login100 {
-    padding: 20px 80px 33px 10px;
+    /*padding: 20px 80px 33px 10px;*/
+    padding: 80px 130px 33px 95px
   }
 
   .login100-pic {
       width: auto;
-      height: 50%;
+      height: 20%;
     display: flex;
     
   }
@@ -797,8 +824,11 @@ ANIMACIONES SLIDER */
      
      
     .modal-content img{
-      
         display: none;
+    }
+    
+    .login100-form-txt{
+        font-size: 12px;
     }
 
 }
@@ -823,6 +853,10 @@ ANIMACIONES SLIDER */
     
       .modal-content{
         height: auto;
+    }
+    
+    .login100-form-txt{
+        font-size: 12px;
     }
 }
 
