@@ -199,6 +199,7 @@ iframe {
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 80px 130px 33px 95px;
+    
 }
 
 /*------------------------------------------------------------------
@@ -207,6 +208,9 @@ iframe {
   width: 50%;
   align-items: center;
   display: flex;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .Footer-pic img {
@@ -238,10 +242,11 @@ iframe {
 
 .login100-form-title {
   font-family: Poppins-Bold;
-  font-size: 30px;
+  font-size: 25px;
   color: #333333;
-  text-align: center;
-    align-content: center;
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: 10px;
 }
 
 .login100-form-footer {
@@ -356,7 +361,8 @@ iframe {
   display: flex;
   /*flex-wrap: wrap; /* al borrar los botones se ponen lado a lado*/
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .login100-form-btn {
@@ -386,6 +392,7 @@ iframe {
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
+    margin-bottom: 10px;
 }
 
 .login100-form-btn:hover {
@@ -445,7 +452,7 @@ Inicio Landing
 #header {
   position: relative;
   width: 100%;
-  padding: 100px 0;
+  padding: 5px;
   /* countdown */
 }
 
@@ -548,7 +555,7 @@ Inicio Landing
 
 .modal-content {
     width: 500px;
-    height: 350px;
+    height: 400px;
     background-color: white;
     border-radius: 20px;
     text-align: center;
@@ -560,7 +567,7 @@ Inicio Landing
 .modal-content img{
     width: 35%;
     height: 50%;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -677,12 +684,14 @@ ANIMACIONES SLIDER */
 
 @media (max-width: 992px) {
   .wrap-login100 {
-    padding: 177px 90px 33px 85px;
+    /*padding: 30x 90px 33px 85px;*/
+      padding: 80px 130px 33px 95px
   }
 
   .login100-pic {
-    /* width: 35%; */
-    display: none;
+    width: auto;
+      height: 50%;
+    display: flex;
   }
 
   .login100-form {
@@ -693,40 +702,128 @@ ANIMACIONES SLIDER */
         flex-wrap: wrap;
     }
     
-    .modal-content{
-        height: 500px;
+     .modal-content{
+        height: auto;
+    }
+    
+    .login100-form-btn{
+        margin-bottom: 10px;
+    }
+    
+     #header{
+        width: auto;
+        height: auto;
+    }    
+    
+    #header .countdown {
+        display: none;
+  }  
+    
+    
+     .bg-modal{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.7);
+        position: absolute;
+        top: 0;    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        display: none;
+        z-index: 1;
+    }
+    .modal-content img{
+        display: none;
+    }
+    .login100-form-title{
+        font-size: 12px;
     }
 }
 
 @media (max-width: 768px) {
   .wrap-login100 {
-    padding: 100px 80px 33px 80px;
+    padding: 20px 80px 33px 10px;
   }
 
   .login100-pic {
-    display: none;
+      width: auto;
+      height: 50%;
+    display: flex;
+    
   }
 
   .login100-form {
     width: 100%;
   }
-   #header .countdown {
+   
+    #header{
+        width: auto;
+        height: auto;
+    }    
+    
+  #header .countdown {
         display: none;
   }  
-     .container-login100-form-btn {
+    
+    
+  .container-login100-form-btn {
         flex-wrap: wrap;
-    }
+        }
     
     .modal-content{
-        height: 500px;
+        height: auto;
     }
     
+    .login100-form-btn{
+        margin-bottom: 10px;
+    }
+    
+    .login100-form-title{
+        font-size: 15px;
+    }
+    
+    .bg-modal{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.7);
+        position: absolute;
+        top: 0;    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        display: none;
+        z-index: 1;
+    }
+     
+     
+    .modal-content img{
+      
+        display: none;
+    }
+
 }
 
 @media (max-width: 576px) {
   .wrap-login100 {
-    padding: 100px 15px 33px 15px;
+    padding: 20px 15px 33px 15px;
   }
+    
+     .bg-modal{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.7);
+        position: absolute;
+        top: 0;    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        display: none;
+        z-index: 1;
+    }
+    
+      .modal-content{
+        height: auto;
+    }
 }
 
 
