@@ -7,11 +7,10 @@
     var input = $('.validate-input .input100');
 
     $('.validate-form').on('submit', function () {
-
         var bandera = 0;
         console.log(input);
         for (var i = 0; i < input.length; i++) {
-			console.log(i);
+            console.log(i);
             switch (i) {
             case 0:
                 if (validateLet(input[i]) == false) {
@@ -53,7 +52,7 @@
                 }
 
             }
-            
+
         }
 
         console.log(bandera)
@@ -142,5 +141,30 @@
         var thisAlert = $(input).parent();
         $(thisAlert).removeClass('alert-validate');
     }
+
+    $('.validate-form-in').on('submit', function () {
+        var bandera = 0;
+
+        for (var i = 0; i < input.length; i++) {
+            if (validate(input[i]) == false) {
+                showValidate(input[i]);
+                bandera++;
+            }
+
+        }
+
+        console.log(bandera)
+
+        if (bandera != 0) {
+            return false;
+        }
+
+    });
+
+    $('.validate-form-in .input100').each(function () {
+        $(this).focus(function () {
+            hideValidate(this);
+        });
+    });
 
 })(jQuery);
