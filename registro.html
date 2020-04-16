@@ -13,8 +13,8 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 		<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-		<script src="js/validate.min.js"></script>
-	    <script src="js/search_langing_page.js"></script>
+	
+
 
 </head>
 	
@@ -30,7 +30,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese nombre(s)">
-						<input class="input100" type="text" name="nombre" placeholder="Nombre(s)">
+						<input class="input100" type="text" id="nombre" name="nombre" placeholder="Nombre(s)">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
@@ -38,7 +38,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese apellido(s)">
-						<input class="input100" type="text" name="apellido" placeholder="Apellido(s)">
+						<input class="input100" type="text" id="apellido" name="apellido" placeholder="Apellido(s)">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-address-book" aria-hidden="true"></i>
@@ -47,7 +47,8 @@
 
 
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese su teléfono celular">
-						<input class="input100" id="celular" name="celular" placeholder="Teléfono celular">
+						<input class="input100" id="celular" name="celular" placeholder="Teléfono celular"
+						type="number" pattern="[0-9]{8}" title="Ingrese sólo dígitos">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-phone" aria-hidden="true"></i>
@@ -57,7 +58,8 @@
 
 
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese su C.I">
-						<input class="input100" type="number" name="ci" placeholder="Cédula de identidad">
+						<input class="input100" id="ci" name="ci" placeholder="Cédula de identidad"
+						type="number" pattern="[0-9]{7}" title="Ingrese sólo dígitos">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-sort-numeric-desc" aria-hidden="true"></i>
@@ -66,7 +68,7 @@
 
 
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese su correo electrónico">
-						<input class="input100" type="text" name="mail" placeholder="Correo electrónico">
+						<input class="input100" type="text" id="email" name="email" placeholder="Correo electrónico">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -75,7 +77,7 @@
 
 
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese una contraseña">
-						<input class="input100" type="password" name="pass" placeholder="Contraseña">
+						<input class="input100" type="password" id="pass" name="pass" placeholder="Contraseña" minlength="5" maxlength="40">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>

@@ -47,7 +47,7 @@
 				<form class="login100-form-reg validate-form" action="#">
 					
      				<div class="wrap-input100 validate-input" data-validate = "Ingrese nombre(s)">
-						<input class="input100" type="text" name="nombre" placeholder="Nombre(s) del adoptante">
+						<input class="input100" type="text" id="nombre" name="nombre" placeholder="Nombre(s) del adoptante">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
@@ -55,7 +55,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese apellido(s)">
-						<input class="input100" type="text" name="pass" placeholder="Apellido(s) del adoptante">
+						<input class="input100" type="text" id="apellido" name="apellido" placeholder="Apellido(s) del adoptante">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-address-book" aria-hidden="true"></i>
@@ -64,7 +64,7 @@
 
 
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese su teléfono celular">
-						<input class="input100" type="text" name="celular" placeholder="Teléfono celular del adoptante">
+						<input class="input100" type="number" id="celular" name="celular" placeholder="Teléfono celular del adoptante" pattern="[0-9]{8}" title="Ingrese sólo dígitos">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-phone" aria-hidden="true"></i>
@@ -74,7 +74,7 @@
 
 
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese su C.I">
-						<input class="input100" type="text" name="pass" placeholder="Cédula de identidad del adoptante">
+						<input class="input100" type="number" id="ci" name="ci" placeholder="Cédula de identidad del adoptante" pattern="[0-9]{7}">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-sort-numeric-desc" aria-hidden="true"></i>
@@ -83,7 +83,7 @@
 
 
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese su correo electrónico">
-						<input class="input100" type="text" name="pass" placeholder="Correo electrónico del adoptante">
+						<input class="input100" type="text" id="email" name="email" placeholder="Correo electrónico del adoptante">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -92,7 +92,7 @@
 
 
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese fecha de adopción">
-						<input class="input100" type="date" name="pass" placeholder="Fecha de adopción">
+						<input class="input100" type="date" id="fecha" name="fecha" placeholder="Fecha de adopción">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="far fa-calendar-alt" aria-hidden="true"></i>
@@ -101,7 +101,7 @@
 
 
 					<div class="wrap-input100">
-						<button class="login100-form-btn" type="password" name="pass">Cargar fotografía</button>
+						<button class="login100-form-btn" type="password" id="foto" name="foto">Cargar fotografía</button>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-camera-retro" aria-hidden="true"></i>

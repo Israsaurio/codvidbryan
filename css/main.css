@@ -354,7 +354,7 @@ iframe {
   height: 100%;
   padding-left: 35px;
   pointer-events: none;
-  color: #000;
+  color: #000; /*-- color de los iconos de input box --*/
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
@@ -863,7 +863,12 @@ ANIMACIONES SLIDER */
 
 /*------------------------------------------------------------------
 [ Validación ]*/
-
+input.error, textarea.error {
+    border: 2px dashed red;
+    font-weight: 300;
+    color: red;
+    vertical-align: middle;
+}
 .validate-input {
   position: relative;
 }
