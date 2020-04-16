@@ -245,7 +245,7 @@ iframe {
   font-size: 25px;
   color: #333333;
     text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     margin-top: 10px;
     
     display: flex;
@@ -278,6 +278,39 @@ iframe {
 }
 
 
+/*-----BOTON DE CARGA DE IMAGEN */
+.input100-form-btn-input {
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+#labelphoto{
+    width: 100%;
+    font-weight: 700;
+    height: 100%;
+    text-align: left;
+    color: white;
+}
+.input100-form-btn-input + label {
+    font-size: 15px;
+    line-height: 1.5;
+    width: 100%;
+    height: 50px; /*height: 50%;*/
+    color: #666666;
+    background-color: rgba(87,184,70, 0.8);
+    display: block;
+    border-radius: 25px;
+    
+}
+
+.input100-form-btn-input:focus + label,
+.input100-form-btn-input + label:hover {
+    background-color: #333333;
+}
 
 /*---------------------------------------------*/
 .wrap-input100 {
@@ -292,12 +325,11 @@ iframe {
   font-size: 15px;
   line-height: 1.5;
   color: #666666;
-
   display: block;
   width: 100%;
   background: #e6e6e6;
   height: 50px;
-  border-radius: 25px;
+  border-radius: 20px;
   padding: 0 30px 0 68px;
 }
 
@@ -394,7 +426,7 @@ iframe {
     
   width: 100%;
   height: 50px;
-  border-radius: 25px;
+  border-radius: 20px;
   background: #57b846;
   display: -webkit-box;
   display: -webkit-flex;

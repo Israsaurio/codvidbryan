@@ -2,13 +2,11 @@
 (function ($) {
     "use strict";
 
-    /*==================================================================
-    [ Validate ]*/
     var input = $('.validate-input .input100');
 
     $('.validate-form').on('submit', function () {
-        var bandera = 0;
         console.log(input);
+        var bandera = 0;
         for (var i = 0; i < input.length; i++) {
             console.log(i);
             switch (i) {
@@ -44,6 +42,16 @@
                 }
                 break;
 
+            case 6:
+                if ($('#file').get(0).files.length === 0) {
+                    console.log("Sin imagen");
+                    showValidate(input[i]);
+                    bandera++;
+                } else {
+                    console.log("Con imagen");
+                }
+                break;
+
             default:
                 if (validate(input[i]) == false) {
                     console.log("Validación de mail y campos vaios");
@@ -68,6 +76,13 @@
             hideValidate(this);
         });
     });
+	
+	$('.validate-form .input100-form-btn-input').each(function () {
+        $(this).focus(function () {
+            hideValidate(this);
+        });
+    });
+	
 
     function validateLet(input) {
         var letters = /^[A-Za-z]+$/;
@@ -142,6 +157,7 @@
         $(thisAlert).removeClass('alert-validate');
     }
 
+    //validanto formulario de index
     $('.validate-form-in').on('submit', function () {
         var bandera = 0;
 
@@ -166,5 +182,102 @@
             hideValidate(this);
         });
     });
+	
+	
+		
+
+    //validanto formulario de registro
+    $('.validate-form-adop').on('submit', function () {
+        var bandera = 0;
+        console.log(input);
+        for (var i = 0; i < input.length; i++) {
+            switch (i) {
+            case 0:
+                if (validateLet(input[i]) == false) {
+                    showValidate(input[i]);
+                    console.log("Validación de nombre");
+                    bandera++;
+                }
+                break;
+
+            case 1:
+                if (validateLetAp(input[i]) == false) {
+                    showValidate(input[i]);
+                    console.log("Validación de apellido");
+                    bandera++;
+                }
+                break;
+
+            case 2:
+                if (validateCel(input[i]) == false) {
+                    showValidate(input[i]);
+                    console.log("Validación de celuluar");
+                    bandera++;
+                }
+                break;
+
+            case 3:
+                if (validateCI(input[i]) == false) {
+                    showValidate(input[i]);
+                    console.log("Validación de carne");
+                    bandera++;
+                }
+                break;
+
+			case 5:
+				var fe = $('#date').val();
+				console.log(fe);
+				if(fe==null || fe == ""){
+					console.log("fecha es nulo");
+					showValidate(input[i]);
+					bandera++;
+				} else {
+					console.log("fecha no es nulo");
+				}
+                break;
+
+            case 6:
+                if ($('#file').get(0).files.length === 0) {
+                    console.log("Sin imagen");
+                    showValidate(input[i]);
+                    bandera++;
+                } else {
+                    console.log("Con imagen");
+                }
+                break;
+
+            default:
+                if (validate(input[i]) == false) {
+                    console.log("Validación de mail y campos vaios");
+                    showValidate(input[i]);
+                    bandera++;
+                }
+
+            }
+
+        }
+
+        console.log(bandera)
+
+        if (bandera != 0) {
+            return false;
+        }
+
+    });
+
+    $('.validate-form-adop .input100').each(function () {
+        $(this).focus(function () {
+            hideValidate(this);
+        });
+    });
+	
+	
+	 $('.validate-form-adop .input100-form-btn-input').each(function () {
+        $(this).focus(function () {
+            hideValidate(this);
+        });
+    });
+	
+
 
 })(jQuery);
