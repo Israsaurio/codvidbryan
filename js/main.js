@@ -76,13 +76,12 @@
             hideValidate(this);
         });
     });
-	
-	$('.validate-form .input100-form-btn-input').each(function () {
+
+    $('.validate-form .input100-form-btn-input').each(function () {
         $(this).focus(function () {
             hideValidate(this);
         });
     });
-	
 
     function validateLet(input) {
         var letters = /^[A-Za-z]+$/;
@@ -182,9 +181,6 @@
             hideValidate(this);
         });
     });
-	
-	
-		
 
     //validanto formulario de registro
     $('.validate-form-adop').on('submit', function () {
@@ -224,16 +220,16 @@
                 }
                 break;
 
-			case 5:
-				var fe = $('#date').val();
-				console.log(fe);
-				if(fe==null || fe == ""){
-					console.log("fecha es nulo");
-					showValidate(input[i]);
-					bandera++;
-				} else {
-					console.log("fecha no es nulo");
-				}
+            case 5:
+                var fe = $('#date').val();
+                console.log(fe);
+                if (fe == null || fe == "") {
+                    console.log("fecha es nulo");
+                    showValidate(input[i]);
+                    bandera++;
+                } else {
+                    console.log("fecha no es nulo");
+                }
                 break;
 
             case 6:
@@ -270,14 +266,38 @@
             hideValidate(this);
         });
     });
-	
-	
-	 $('.validate-form-adop .input100-form-btn-input').each(function () {
+
+    $('.validate-form-adop .input100-form-btn-input').each(function () {
         $(this).focus(function () {
             hideValidate(this);
         });
     });
-	
 
+    //cargar imagen
+    $("#file").change(function () {
+        console.log("imagen");
+        readURL(this);
+    });
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#imagen_cargada').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    //borrar imagen de img
+	$('#borrar').click(function () {
+        console.log("AQUI");
+		$('#imagen_cargada').removeAttr('src');
+		
+    });
+
+   
 
 })(jQuery);

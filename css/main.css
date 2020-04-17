@@ -312,6 +312,13 @@ iframe {
     background-color: #333333;
 }
 
+#wrap-input100-img img{
+    width: 50%;
+    height: auto;
+    margin: auto;
+    display: block;
+}
+
 /*---------------------------------------------*/
 .wrap-input100 {
   position: relative;
