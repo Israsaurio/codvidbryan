@@ -5,15 +5,12 @@
     var input = $('.validate-input .input100');
 
     $('.validate-form').on('submit', function () {
-        console.log(input);
         var bandera = 0;
         for (var i = 0; i < input.length; i++) {
-            console.log(i);
             switch (i) {
             case 0:
                 if (validateLet(input[i]) == false) {
                     showValidate(input[i]);
-                    console.log("Validación de nombre");
                     bandera++;
                 }
                 break;
@@ -21,7 +18,6 @@
             case 1:
                 if (validateLetAp(input[i]) == false) {
                     showValidate(input[i]);
-                    console.log("Validación de apellido");
                     bandera++;
                 }
                 break;
@@ -29,7 +25,6 @@
             case 2:
                 if (validateCel(input[i]) == false) {
                     showValidate(input[i]);
-                    console.log("Validación de celuluar");
                     bandera++;
                 }
                 break;
@@ -37,24 +32,19 @@
             case 3:
                 if (validateCI(input[i]) == false) {
                     showValidate(input[i]);
-                    console.log("Validación de carne");
                     bandera++;
                 }
                 break;
 
             case 6:
                 if ($('#file').get(0).files.length === 0) {
-                    console.log("Sin imagen");
                     showValidate(input[i]);
                     bandera++;
-                } else {
-                    console.log("Con imagen");
-                }
+                } 
                 break;
 
             default:
                 if (validate(input[i]) == false) {
-                    console.log("Validación de mail y campos vaios");
                     showValidate(input[i]);
                     bandera++;
                 }
@@ -63,7 +53,6 @@
 
         }
 
-        console.log(bandera)
 
         if (bandera != 0) {
             return false;
@@ -185,13 +174,11 @@
     //validanto formulario de registro
     $('.validate-form-adop').on('submit', function () {
         var bandera = 0;
-        console.log(input);
         for (var i = 0; i < input.length; i++) {
             switch (i) {
             case 0:
                 if (validateLet(input[i]) == false) {
                     showValidate(input[i]);
-                    console.log("Validación de nombre");
                     bandera++;
                 }
                 break;
@@ -199,7 +186,6 @@
             case 1:
                 if (validateLetAp(input[i]) == false) {
                     showValidate(input[i]);
-                    console.log("Validación de apellido");
                     bandera++;
                 }
                 break;
@@ -207,7 +193,6 @@
             case 2:
                 if (validateCel(input[i]) == false) {
                     showValidate(input[i]);
-                    console.log("Validación de celuluar");
                     bandera++;
                 }
                 break;
@@ -215,7 +200,6 @@
             case 3:
                 if (validateCI(input[i]) == false) {
                     showValidate(input[i]);
-                    console.log("Validación de carne");
                     bandera++;
                 }
                 break;
@@ -224,27 +208,20 @@
                 var fe = $('#date').val();
                 console.log(fe);
                 if (fe == null || fe == "") {
-                    console.log("fecha es nulo");
                     showValidate(input[i]);
                     bandera++;
-                } else {
-                    console.log("fecha no es nulo");
-                }
+                } 
                 break;
 
             case 6:
                 if ($('#file').get(0).files.length === 0) {
-                    console.log("Sin imagen");
                     showValidate(input[i]);
                     bandera++;
-                } else {
-                    console.log("Con imagen");
-                }
+                } 
                 break;
 
             default:
                 if (validate(input[i]) == false) {
-                    console.log("Validación de mail y campos vaios");
                     showValidate(input[i]);
                     bandera++;
                 }
@@ -275,7 +252,6 @@
 
     //cargar imagen
     $("#file").change(function () {
-        console.log("imagen");
         readURL(this);
     });
 
@@ -293,11 +269,12 @@
 
     //borrar imagen de img
 	$('#borrar').click(function () {
-        console.log("AQUI");
 		$('#imagen_cargada').removeAttr('src');
 		
     });
 
-   
+    $('#cerrar').click(function(){
+		open(location, '_self').close();
+	});
 
 })(jQuery);

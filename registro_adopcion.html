@@ -101,7 +101,7 @@
 
 
 					<div class="wrap-input100 validate-input" data-validate = "Cargue una imagen">
-						<input type="file" class="input100-form-btn-input" name="file" id="file">
+						<input type="file" class="input100-form-btn-input" name="file" id="file" accept="image/x-png,image/gif,image/jpeg">
 						<label for="file" id="labelphoto" class="input100">Imagen del(a) adoptante</label>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -109,7 +109,9 @@
 						</span>
 					</div>
 
-					
+					<div id="wrap-input100-img">
+						<img id="imagen_cargada" src="" />
+					</div>
 						
 					
 
@@ -117,15 +119,15 @@
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
-							Registrar
+							<a href="">Registrar</a>
 						</button>
 
-						<button class="login100-form-btn" onClick="this.form.reset()">
-							Borrar
+						<button class="login100-form-btn" id="borrar" onClick="this.form.reset()">
+							<a href="">Borrar</a>
 						</button>
 
 						<button class="login100-form-btn">
-							Cancelar
+							<a href="landing.html" onclick="self.close()">Cancelar</a>
 						</button>
 					</div>
 

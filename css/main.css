@@ -42,15 +42,18 @@ body, html {
 
 /*---------------------------------------------*/
 a {
-	font-family: Poppins-Regular;
+	font-family: Montserrat-Bold;
 	font-size: 14px;
+    font-weight: 500;
 	line-height: 1.7;
-	color: #666667;
+	/*color: #666667;*/
+    color: white;
 	margin: 0px;
 	transition: all 0.4s;
 	-webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
+    text-decoration: none;
 }
 
 a:focus {
@@ -59,7 +62,7 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-  color: #57b846;
+      color: #57b846;
 }
 
 /*---------------------------------------------*/
@@ -781,17 +784,7 @@ ANIMACIONES SLIDER */
   }  
     
     
-     .bg-modal{
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0,0,0,0.7);
-        position: absolute;
-        top: 0;    
-        display: flex;
-    }
-    .modal-content img{
-        display: none;
-    }
+     
     .login100-form-title{
         font-size: 12px;
     }
