@@ -116,23 +116,27 @@
 
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<!--<button class="login100-form-btn">
 							<a href="">
 							Registrar
 							</a>
-						</button>
+						</button>-->
+						
+						 <input type="submit" onclick="validarForm()" value="Registrar">
 
-						<button class="login100-form-btn" id="borrar" onClick="this.form.reset()" >
+						<!--<button class="login100-form-btn" id="borrar" onClick="this.form.reset()" >
 							<a href="">
 							Borrar
 							</a>
-						</button>
-
-						<button class="login100-form-btn">
-							<a href="index.html" onclick="self.close()">
+						</button>-->
+						<input type="submit" onclick="this.form.reset()" id="borrar" value="Borrar">
+						<!--<button class="login100-form-btn" onclick="self.close();">
+							<!--<a href="index.html" onclick="self.close()">
 							Cancelar
-							</a>
-						</button>
+							</a>-
+							Cancelar
+						</button>-->
+						<input type="submit" id="cerrar" value="Cancelar">
 					</div>
 
 
@@ -141,10 +145,7 @@
 
 					
 					<div class="text-center">
-						<a class="txt2" href="#">
-							Ir a inicio de sesión!
-							<i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>
-						</a>
+						
 
 						<div class="Footer-pic">
 							<img src="images/AA.png" alt="A,pr Animal">

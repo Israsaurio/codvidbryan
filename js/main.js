@@ -276,5 +276,10 @@
     $('#cerrar').click(function(){
 		open(location, '_self').close();
 	});
+	
+	$('#cerrar_reg_adop').click(function(){
+		window.open("landing.html");
+		window.close();
+	});
 
 })(jQuery);

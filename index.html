@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
@@ -12,9 +13,8 @@
 	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-      <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-      	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css.map">
-
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css.map">
+	
 
 </head>
 
@@ -49,9 +49,10 @@
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<!--<button class="login100-form-btn">
 							<a href="">Iniciar</a>
-						</button>
+						</button>-->
+						<input type="submit" value="Iniciar">
 						
 					</div>
 
@@ -65,10 +66,14 @@
 					</div>
 
 					<div class="text-center p-t-50">
-						<a class="txt2" href="registro.html">
+						<!--<a class="txt2" href="registro.html">
 							Crea una cuenta!
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-						</a>
+						</a>-->
+						<span class="text-footer">¿Aún no te registraste?
+							<!--<a href="registro.html" id=""> Regístrate!</a>-->
+							<input type="button" id="btnopen" value="Registrate!"/>
+                		</span>
 					</div>
 				</form>
 			</div>
@@ -78,7 +83,6 @@
 	
 
 	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="js/search_langing_page.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="vendor/select2/select2.min.js"></script>
 	<script src="vendor/tilt/tilt.jquery.min.js"></script>
@@ -87,16 +91,16 @@
 			scale: 1.1
 		})
 	</script>
-	<script src="js/main.js"></script>
+	
 
 
 	
 	<div class="bg-modal">
     <div class="modal-content">
-      <div class="close">+</div>
+      <div class="close_x">+</div>
       <h6>Recupere su contraseña</h6>
       <div class="Footer-pic">
-		 <img src="images/inicio.png" alt="A,pr Animal">
+		 <img src="images/inicio.png" alt="Amor Animal">
 	  </div>
 
       <form action="#">
@@ -110,19 +114,26 @@
         </div>
 
         <div class="container-login100-form-btn">
-            <button class="login100-form-btn">
+            <!--<button class="login100-form-btn">
                Enviar
             </button>
           
             <button class="login100-form-btn" id="closse">
               Cancelar
-            </button>
+            </button>-->
+			<input type="submit" value="Enviar">
+			<input type="submit" id="clossse" value="Cancelar">
+
         </div>
       </form>
-
+	<script src="js/main.js"></script>
+	<script src="js/search_langing_page.js"></script>
 
     </div>
 	</div>
 
 </body>
+
+
+
 </html>
