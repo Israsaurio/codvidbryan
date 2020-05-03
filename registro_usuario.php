@@ -7,7 +7,7 @@
 	$nombre_e = $apellido_e = $celular_e = $ci_e = $email_e = $pass_e = $img_e = $est_e = "";	
 
 	//obteniendo datos del servidor
-	if($_SERVER["REQUEST_METHOD"] == "POST"){
+	if($_SERVER["REQUEST_METHOD"] === "POST"){
         $bandera_registro = 0;
 		//validando si cedula de identidad es unica
            	if(empty(trim($_POST["ci"]))){
@@ -89,8 +89,7 @@
                     empty($celular_e) &&
                     empty($ci_e) &&
                     empty($email_e) &&
-                    empty($pass_e) &&
-                    $band_adm_ind == 1){
+                    empty($pass_e)){
 
                     echo "aqui";
 
@@ -109,7 +108,7 @@
                         $fec = $fecha;
                         $ba = $band_adm_ind;        
                         if(mysqli_stmt_execute($stmt)){
-                            header("location: index.html");
+                            header("location: index.php");
                         } else {
                             echo "Algo salió mal, intentalo una vez más";
                         }
@@ -119,6 +118,9 @@
                 } else {
                     echo ".-'-> algo va mal ".$nombre_e." ".$apellido_e." ".$celular_e." ".$ci_e." ".$email_e." ".$pass_e."->".$band_adm_ind;
                 }
+            } else {
+                echo '<script language="javascript">alert("El número de identidad ya esta en uso, reiniciando campos . . .");</script>';
+                //echo $ci_e;
             }
 
         mysqli_close($con); 

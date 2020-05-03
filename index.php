@@ -1,5 +1,5 @@
 <?php
-    include 'code_login.php';
+    include 'conde_login.php';
 ?>
 
 
@@ -33,16 +33,18 @@
 					<img src="images/AA.png" alt="Amor animal">
 				</div>
 
-				<form class="login100-form validate-form-in" action="#">
+				<form class="login100-form validate-form-in" 
+				action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" 
+				method="POST" id="inicio">
 					<div class="login100-form-title">
 						Iniciar sesión
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Email requerido">
-						<input class="input100" type="text" name="email" placeholder="Email">
+					<div class="wrap-input100 validate-input" data-validate = "Ingrese su C.I">
+						<input class="input100" type="number" id="ci" name="ci" placeholder="Cédula de identidad" pattern="[0-9]{7}">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<i class="fa fa-sort-numeric-desc" aria-hidden="true"></i>
 						</span>
 					</div>
 
@@ -52,15 +54,14 @@
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
+						
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<!--<button class="login100-form-btn">
-							<a href="">Iniciar</a>
-						</button>-->
-						<input type="submit" value="Iniciar">
-						
+						<input type="submit" value="Iniciar" name="submit_1" id="submit_1">
 					</div>
+
+					<span class="ms-error"><?php echo $session_err; ?></span>
 
 					<div class="text-center p-t-12">
 						<span class="txt1">
@@ -71,17 +72,15 @@
 						</a>
 					</div>
 
+
 					<div class="text-center p-t-50">
-						<!--<a class="txt2" href="registro.html">
-							Crea una cuenta!
-							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-						</a>-->
 						<span class="text-footer">¿Aún no te registraste?
 							<!--<a href="registro.html" id=""> Regístrate!</a>-->
-							<input type="button" id="btnopen" value="Registrate!"/>
+						<input type="button" id="btnopen" value="Registrate!"/>
                 		</span>
 					</div>
-				</form>
+					</form>
+				
 			</div>
 		</div>
 	</div>
@@ -97,10 +96,13 @@
 			scale: 1.1
 		})
 	</script>
+	<script src="js/main.js"></script>
+	<script src="js/search_langing_page.js"></script>
+
 	
 
 
-	
+	<!--
 	<div class="bg-modal">
     <div class="modal-content">
       <div class="close_x">+</div>
@@ -109,10 +111,10 @@
 		 <img src="images/inicio.png" alt="Amor Animal">
 	  </div>
 
-      <form action="#">
+      <form id="resset">
 
         <div class="wrap-input100 validate-input">
-        <input class="input100" type="password" name="pass" placeholder="Ingrese su correo electrónico">
+        <input class="input100" type="password" name="passs" placeholder="Ingrese su correo electrónico">
         <span class="focus-input100"></span>
         <span class="symbol-input100">
           <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -120,14 +122,8 @@
         </div>
 
         <div class="container-login100-form-btn">
-            <!--<button class="login100-form-btn">
-               Enviar
-            </button>
-          
-            <button class="login100-form-btn" id="closse">
-              Cancelar
-            </button>-->
-			<input type="submit" value="Enviar">
+            
+			<input type="submit" name="submit_2" id="submit_2" value="Enviar">
 			<input type="submit" id="clossse" value="Cancelar">
 
         </div>
@@ -136,7 +132,7 @@
 	<script src="js/search_langing_page.js"></script>
 
     </div>
-	</div>
+	</div> -->
 
 </body>
 

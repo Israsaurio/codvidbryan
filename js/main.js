@@ -231,7 +231,7 @@
 
         }
 
-        console.log(bandera)
+        console.log("band "+bandera);
 
         if (bandera != 0) {
             return false;
@@ -275,11 +275,14 @@
     });
 
     $('#cerrar').click(function(){
+		window.open("index.php");
 		open(location, '_self').close();
+		
 	});
 	
 	$('#cerrar_reg_adop').click(function(){
-		window.open("landing.html");
+		console.log("CERRANDO");
+		window.open("landing.php");
 		window.close();
 	});
 
