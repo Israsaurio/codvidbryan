@@ -3,9 +3,10 @@
     "use strict";
 
     var input = $('.validate-input .input100');
-
+	
     $('.validate-form').on('submit', function () {
         var bandera = 0;
+		console.log(input);
         for (var i = 0; i < input.length; i++) {
             switch (i) {
             case 0:
@@ -37,7 +38,7 @@
                 break;
 
             case 6:
-                if ($('#file').get(0).files.length === 0) {
+                if ($('#file').get(0).files.length == 0) {
                     showValidate(input[i]);
                     bandera++;
                 } 

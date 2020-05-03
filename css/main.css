@@ -332,7 +332,7 @@ iframe {
 #labelphoto{
     width: 100%;
     font-weight: 700;
-    height: 100%;
+    height: auto;
     text-align: left;
     color: white;
 }
@@ -428,6 +428,7 @@ iframe {
   display: -ms-flexbox;
   display: flex;
   align-items: center;
+  vertical-align: middle;
   position: absolute;
   border-radius: 25px;
   bottom: 0;
@@ -554,6 +555,18 @@ Switch
 .switch-button .switch-button__checkbox:checked + .switch-button__label:before {
     transform: translateX(3rem);
 }
+
+/*****
+mensaje de error
+texto de error */
+.ms-error{
+    color: red;
+    display: initial;
+    font-size: 12px;
+    margin-top: 2px;
+    margin-left: 5%;
+}
+
 
 
 /*****************************************

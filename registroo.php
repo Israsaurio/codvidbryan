@@ -3,9 +3,6 @@
 ?>
 
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +29,7 @@
 			<div class="wrap-login100">
 				
 				<form class="login100-form-reg validate-form"
-				action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>"
+				action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"
 				id="registro_form" enctype="multipart/form-data" method="POST">
 					
 					<div class="login100-form-title">
@@ -45,6 +42,7 @@
 						<span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
 						</span>
+
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese apellido(s)">
@@ -53,6 +51,7 @@
 						<span class="symbol-input100">
 							<i class="fa fa-address-book" aria-hidden="true"></i>
 						</span>
+
 					</div>
 
 
@@ -63,6 +62,7 @@
 						<span class="symbol-input100">
 							<i class="fa fa-phone" aria-hidden="true"></i>
 						</span>
+
 					</div>
 
 
@@ -83,6 +83,7 @@
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
+
 					</div>
 
 
@@ -92,6 +93,7 @@
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
+
 					</div>
 
 
@@ -101,6 +103,7 @@
 						<span class="symbol-input100">
 							<i class="fa fa-camera-retro" aria-hidden="true"></i>
 						</span>
+
 					</div>
 					
 					<div id="wrap-input100-img">
@@ -117,9 +120,10 @@
 							<h6>No</h6>
 		    			   <input type="checkbox" name="switch-button" id="switch-label" class="switch-button__checkbox"/>
 		    			    
-		    			    <label for="switch-label" class="switch-button__label">		    			   
+		    			    <label for="switch-label" class="switch-button__label">		    	
 							</label>
 							<h6>Si</h6>
+
 						</div>
 					
 
@@ -132,7 +136,7 @@
 							</a>
 						</button>-->
 						
-						 <input type="submit" onclick="validarForm()" value="Registrar">
+						<input type="submit" onclick="validarForm()" value="Registrar">
 
 						<!--<button class="login100-form-btn" id="borrar" onClick="this.form.reset()" >
 							<a href="">
