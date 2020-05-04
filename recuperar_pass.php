@@ -1,5 +1,16 @@
 <?php
-    include 'conde_login.php';
+
+	//session_start();
+
+    //if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+        //header("location: index.php"); //si no se encuentra con login
+        //exit;
+        include 'rec_pass.php';
+  //  } else {
+   // 	include "landing.php"; //si esta con login
+   // }
+
+    //include 'conde_login.php';
 ?>
 
 
@@ -20,7 +31,8 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css.map">
-	
+		<script src="js/search_langing_page.js"></script>
+
 
 </head>
 
@@ -37,8 +49,9 @@
 				action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" 
 				method="POST" id="inicio">
 					<div class="login100-form-title">
-						Iniciar sesión
+						Recupere su contraseña
 					</div>
+
 
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese su C.I">
 						<input class="input100" type="number" id="ci" name="ci" placeholder="Cédula de identidad" pattern="[0-9]{7}">
@@ -48,35 +61,21 @@
 						</span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Contraseña requerida">
-						<input class="input100" type="password" name="pass" placeholder="Password">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-lock" aria-hidden="true"></i>
-						</span>
-						
-					</div>
+					
 					
 					<div class="container-login100-form-btn">
-						<input type="submit" value="Iniciar" name="submit_1" id="submit_1">
+						<input type="submit" value="Enviar" name="submit_1" id="submit_1">
 					</div>
 
 					<span class="ms-error"><?php echo $session_err; ?></span>
 
-					<div class="text-center p-t-12">
-						<span class="txt1">
-							Olvidaste tu
-						</span>
-						<a class="txt3" href="recuperar_pass.php">
-							Usuario / Contraseña?
-						</a>
-					</div>
+				
 
 
 					<div class="text-center p-t-50">
-						<span class="text-footer">¿Aún no te registraste?
+						<span class="text-footer">¿Tienes cuenta?
 							<!--<a href="registro.html" id=""> Regístrate!</a>-->
-						<input type="button" id="btnopen" value="Regístrate!"/>
+						<input type="button" id="btnopen_recover" value="Inicia sesión!"/>
                 		</span>
 					</div>
 					</form>
@@ -97,7 +96,6 @@
 		})
 	</script>
 	<script src="js/main.js"></script>
-	<script src="js/search_langing_page.js"></script>
 
 	
 

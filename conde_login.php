@@ -4,7 +4,7 @@
     session_start();
     
     if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-        header("location: landing.html");
+        header("location: landing.php");
         exit;
     }
 

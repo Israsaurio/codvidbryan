@@ -2,10 +2,10 @@
     session_start();
 
     if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-        header("location: index.php"); //si no esta con login
-        exit;
+        //header("location: index.php"); //si no esta con login
+       // exit;
     } else {
-    	include "registro_adop.php";
+    	include "registro_resc.php";
     }
 ?>
 
@@ -26,6 +26,8 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+			<script src="js/search_langing_page.js"></script>
+
 </head>
 	
 	<div class="limiter">
@@ -37,7 +39,7 @@
 						
 						<div class="ctn-form">
 							<div class="login100-form-title">
-								Registro de adopción
+								Registro de rescate
 							</div>
 
 							<div class="login100-form-txt">
@@ -57,55 +59,12 @@
             		</div>
 
 
-				<form class="login100-form-reg validate-form-adop" 
+				
+				<form class="login100-form-reg validate-form-reg" 
 				action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" 
 				method="post">
 					
-     				<div class="wrap-input100 validate-input" data-validate = "Ingrese nombre(s)">
-						<input class="input100" type="text" id="nombre" name="nombre" placeholder="Nombre(s) del adoptante">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-user" aria-hidden="true"></i>
-						</span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate = "Ingrese apellido(s)">
-						<input class="input100" type="text" id="apellido" name="apellido" placeholder="Apellido(s) del adoptante">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-address-book" aria-hidden="true"></i>
-						</span>
-					</div>
-
-
-					<div class="wrap-input100 validate-input" data-validate = "Ingrese su teléfono celular">
-						<input class="input100" type="number" id="celular" name="celular" placeholder="Teléfono celular del adoptante" pattern="[0-9]{8}" title="Ingrese sólo dígitos">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-phone" aria-hidden="true"></i>
-						</span>
-					</div>
-
-
-
-					<div class="wrap-input100 validate-input" data-validate = "Ingrese su C.I">
-						<input class="input100" type="number" id="ci" name="ci" placeholder="Cédula de identidad del adoptante" pattern="[0-9]{7}">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-sort-numeric-desc" aria-hidden="true"></i>
-						</span>
-					</div>
-
-
-					<div class="wrap-input100 validate-input" data-validate = "Ingrese su correo electrónico">
-						<input class="input100" type="text" id="email" name="email" placeholder="Correo electrónico del adoptante">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
-					</div>
-
-
+     				
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese fecha de adopción">
 						<input class="input100" type="date" id="date" name="date" placeholder="Fecha de adopción">
 						<span class="focus-input100"></span>
@@ -115,9 +74,36 @@
 					</div>
 
 
+					<div class="wrap-input100 validate-input" data-validate = "Seleccione tipo de animal">
+						<label for="cars">Seleccione tipo de animal:</label>
+
+						<div>
+							<select class="custom-choice">
+								<option value="volvo">Volvo</option>
+						  		<option value="saab">Saab</option>
+						  		<option value="opel">Opel</option>
+						  		<option value="audi">Audi</option>
+							</select>
+						</div>
+						
+					</div>
+
+
+
+
+					<div class="wrap-input100 validate-input" data-validate = "Edad aproximada del animal">
+						<input class="input100" type="number" id="edad" name="edad" placeholder="Edad aproximada" pattern="[0-9]{2}" title="Ingrese sólo dígitos">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-paw" aria-hidden="true"></i>
+						</span>
+					</div>
+
+
+
 					<div class="wrap-input100 validate-input" data-validate = "Cargue una imagen">
 						<input type="file" class="input100-form-btn-input" name="file" id="file" accept="image/x-png,image/gif,image/jpeg">
-						<label for="file" id="labelphoto" class="input100">Imagen del(a) adoptante</label>
+						<label for="file" id="labelphoto" class="input100">Imagen del animal</label>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-camera-retro" aria-hidden="true"></i>

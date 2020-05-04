@@ -41,10 +41,20 @@ $(document).ready(function(){
 	
 	$("#btnopen").click(function(){
 		openC();
+		window.close();
 	});
 	
 	function openC(){
 		window.open("registroo.php");
+	}
+	
+	$("#btnopen_recover").click(function(){
+		openI();
+		window.close();
+	});
+	
+	function openI(){
+		window.open("index.php");
 	}
 	
 });
