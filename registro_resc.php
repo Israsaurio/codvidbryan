@@ -2,7 +2,7 @@
 
 	require_once "conexion.php";
 	
-	$fecha = $img = $tipoanimal = $edad_anio = $edad_meses = "";
+	$fecha = $img = $tipoanimal = $edad_anio = $edad_meses = $directorio = $nombre_img = "";
 
 	$fecha_e = $img_e = $tipoanimal_e = $edad_anio_e = $edad_meses_e = "";	
 
@@ -25,8 +25,11 @@
                 
 
                 if(empty(trim($_FILES["file"]["name"]))){
-                    
-                } 
+                    $img_e = "Ingrese una imagen";
+                } else {
+                    $directorio = $_SERVER["DOCUMENT_ROOT"]."/animalitos/img_rescatados/";
+                    $nombre_img = $_FILES["file"]["name"];
+                }
 
 
                 if(empty(strtotime($_POST["date"]))){
@@ -60,8 +63,10 @@
                         $ani = $tipoanimal;
                         $eda = $edad_anio;
                         $edm = $edad_meses;
-                        $im = $img;
-                              
+                        $im = $directorio.$nombre_img;
+                            
+                        move_uploaded_file($_FILES["file"]["tmp_name"],$directorio.$nombre_img);
+
                         if(mysqli_stmt_execute($stmt)){
                            
                             header("location: landing.php");

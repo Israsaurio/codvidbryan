@@ -2,7 +2,7 @@
 
 	require_once "conexion.php";
 	
-	$nombre = $apellido = $celular = $ci = $email = $img = $fecha = "";
+	$nombre = $apellido = $celular = $ci = $email = $img = $fecha = $directorio = $nombre_img = $ruta = "";
 
 	$nombre_e = $apellido_e = $celular_e = $ci_e = $email_e = $img_e = $fecha_e = "";	
 
@@ -10,7 +10,7 @@
 	if($_SERVER["REQUEST_METHOD"] === "POST"){
         
 
-                if(empty(trim($_POST["ci"]))){
+                if((trim($_POST["ci"])) == null){
                     $ci_e = "Número de cédula de indentidad requerida, campo vacío";
                 } else {
                     $ci = trim($_POST["ci"]);
@@ -29,7 +29,7 @@
                     $apellido=trim($_POST["apellido"]);
                 }
 
-                if(empty(trim($_POST["celular"]))){
+                if((trim($_POST["celular"])) == null){
                     $celular_e="Ingrese su número celular";
                 }else{
                     $celular=trim($_POST["celular"]);
@@ -43,8 +43,12 @@
 
                
                 
-                if(empty(trim($_FILES["file"]["name"]))){
-                    
+                if(empty(trim(($_FILES["file"]["name"])))){
+                    $img_e = "Ingrese una imagen";
+                } else {
+                    $directorio = $_SERVER['DOCUMENT_ROOT'].'/animalitos/img_adopciones/';
+                    $nombre_img = $_FILES["file"]["name"];
+                    $ruta = $directorio.$nombre_img;
                 }
 
 
@@ -56,10 +60,12 @@
                 }
 
                 //$fecha = date("Y/m/d");
+                 echo "Antes de grabar => ".$nombre_e." ".$apellido_e." ".$celular_e." ".$ci_e." ".$email_e." ,imagen=>".$img_e.", nombre imagen=>".$nombre_img;
 
                 if(empty($nombre_e) &&
                     empty($apellido_e) &&
                     empty($celular_e) &&
+                    empty($img_e) &&
                     empty($ci_e) &&
                     empty($email_e) &&
                     empty($fecha_e)){
@@ -76,8 +82,10 @@
                         $c = $celular;
                         $cc = $ci;
                         $mail = $email;
-                        $img = "imag4n";
+                        $img = $ruta;
                         $fec = $fecha;
+
+                        move_uploaded_file($_FILES["file"]["tmp_name"],$ruta);
                               
                         if(mysqli_stmt_execute($stmt)){
                             header("location: landing.php");
@@ -88,7 +96,7 @@
 
 
                 } else {
-                    echo ".-'-> algo va mal ".$nombre_e." ".$apellido_e." ".$celular_e." ".$ci_e." ".$email_e." ".$pass_e."->".$band_adm_ind;
+                    echo ".-'-> algo va mal ".$nombre_e." ".$apellido_e." ".$celular_e." ".$ci_e." ".$email_e." ,imagen=>".$nombre_img;
                 }
          
         mysqli_close($con); 

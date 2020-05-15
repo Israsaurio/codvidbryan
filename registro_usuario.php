@@ -2,7 +2,7 @@
 
 	require_once "conexion.php";
 	
-	$nombre = $apellido = $celular = $ci = $email = $pass = $img = $est = "";
+	$nombre = $apellido = $celular = $ci = $email = $pass = $img = $est = $directorio = $nombre_img = "";
 
 	$nombre_e = $apellido_e = $celular_e = $ci_e = $email_e = $pass_e = $img_e = $est_e = "";	
 
@@ -77,9 +77,15 @@
                 }
 
 
-                if(empty(trim($_FILES["file"]["name"]))){
-                    
-
+                if(empty($_FILES["file"]["name"])){
+                    $img_e = "Ingrese una imagen";
+                } else {
+                    if($band_adm_ind == 0){
+                        $directorio = $_SERVER['DOCUMENT_ROOT'].'/animalitos/img_independientes/';
+                    } else {
+                        $directorio = $_SERVER['DOCUMENT_ROOT'].'/animalitos/img_administradores/';
+                    }
+                    $nombre_img = $_FILES['file']['name'];
                 }
 
                 $fecha = date("Y/m/d");
@@ -104,9 +110,12 @@
                         $cc = $ci;
                         $mail = $email;
                         $pa = password_hash($pass, PASSWORD_DEFAULT); //cifrado de contraseña
-                        $img = "imag4n";
+                        $img = $directorio.$nombre_img;
                         $fec = $fecha;
-                        $ba = $band_adm_ind;        
+                        $ba = $band_adm_ind;  
+
+                        move_uploaded_file($_FILES['file']['tmp_name'],$directorio.$nombre_img);
+      
                         if(mysqli_stmt_execute($stmt)){
                             header("location: index.php");
                         } else {

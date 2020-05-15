@@ -2,13 +2,17 @@
 
 	require_once "conexion.php";
 	
-	$fecha = $alimento = $cantidad = "";
+	$fecha = $alimento = $cantidad = $img = $directorio = $nombre_img = "";
 
-	$fecha_e = $alimento_e = $cantidad_e = "";
+	$fecha_e = $alimento_e = $cantidad_e = $img_e = "";
 
 	//obteniendo datos del servidor
 	if($_SERVER["REQUEST_METHOD"] === "POST"){
                              
+                echo "alimnento: ".trim($_POST["alimento-empaque"]);
+                echo " cantidad: ".trim($_POST["cantidad"]);
+                echo " fecha: ".trim($_POST["date"]);
+                echo " imagen: ".(($_FILES["file"]["name"]));
                 
                 if((trim($_POST["alimento-empaque"])) == null){
                     $alimento_e="Ingrese el tipo de alimento";
@@ -17,9 +21,13 @@
                 }   
                                        
 
-                if(empty(trim($_FILES["file"]["name"]))){
+                if(empty($_FILES["file"]["name"])){
+                    $img_e = "Ingrese una imagen";
+                } else {
+                    $directorio = $_SERVER['DOCUMENT_ROOT'].'/animalitos/img_donaciones/';
+                    $nombre_img = $_FILES['file']['name'];
                     
-                } 
+                }
 
 
                 if(empty(strtotime($_POST["date"]))){
@@ -30,33 +38,32 @@
                 }
 
 
-                if(empty(trim($_POST["especie"]))){
-                    $tipoanimal_e="Ingrese un tipo de animal";
+                if((trim($_POST["cantidad"])) == null){
+                    $cantidad_e="Ingrese una cantidad";
                 } else {
-                    $tipoanimal = trim($_POST["especie"]);
+                    $cantidad = trim($_POST["cantidad"]);
                 }                    
 
 
-
-                if( empty($tipoanimal_e) &&
-                    empty($edad_anio_e) &&
-                    empty($edad_meses_e) &&
+                if(empty($alimento_e) &&
+                    empty($img_e) &&
+                    empty($cantidad_e) &&
                     empty($fecha_e)){
 
 
-                    $sql = "INSERT INTO rescate (f3ch4, 4n1m4l, 3d4dA, 3d4dM, f0t0) VALUES (?,?,?,?,?)";
+                    $sql = "INSERT INTO donacion (f3ch4, d0n4c10n, c4nt1d4d, 1m4g3n) VALUES (?,?,?,?)";
 
                     if($stmt = mysqli_prepare($con, $sql)){
-                        mysqli_stmt_bind_param($stmt, "sssss", $fec, $ani, $eda, $edm, $im);
+                        mysqli_stmt_bind_param($stmt, "ssss", $fec, $don, $can, $im);
                 
                         $fec = $fecha;
-                        $ani = $tipoanimal;
-                        $eda = $edad_anio;
-                        $edm = $edad_meses;
-                        $im = $img;
+                        $don = $alimento;
+                        $can = $cantidad;
+                        $im = $directorio;
+                        move_uploaded_file($_FILES['file']['tmp_name'],$directorio.$nombre_img);
+
                               
                         if(mysqli_stmt_execute($stmt)){
-                           
                             header("location: landing.php");
                         } else {
                             echo "Algo salió mal, intentalo una vez más";
@@ -65,8 +72,8 @@
 
 
                 } else {
-                    echo ".-'-> algo va mal ";
-                }
+                    echo "datos =>".$alimento_e.",".$img_e.",".$cantidad_e.",".$fecha_e;
+                } 
          
         mysqli_close($con); 
     }

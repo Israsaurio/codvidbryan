@@ -62,7 +62,7 @@
 				
 				<form class="login100-form-reg validate-form-res" 
 				action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" 
-				method="post">
+				enctype="multipart/form-data" method="POST">
 					
      				<label>Registre fecha de donación:</label>
      				

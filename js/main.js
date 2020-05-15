@@ -272,37 +272,78 @@
 	//validando formulario de registro de rescate
     $('.validate-form-res').on('submit', function () {
         var bandera = 0;
-        for (var i = 0; i < input.length; i++) {
-            switch (i) {
-            case 0:
-                var fe = $('#date').val();
-                if (fe == null || fe == "") {
-                    showValidate(input[i]);
-                    bandera++;
-                } 
-                break;
+		console.log(input);
+		
+		if(input.length == 2){
+			for (var i = 0; i < input.length; i++) {
+				switch (i) {
+				case 0:
+					var fe = $('#date').val();
+					if (fe == null || fe == "") {
+						showValidate(input[i]);
+						bandera++;
+					} 
+					break;
 
-            case 1:
-                if ($('#file').get(0).files.length === 0) {
-                    showValidate(input[i]);
-                    bandera++;
-                } 
-                break;
-            
-            default:
-                if (validate(input[i]) == false) {
-                    showValidate(input[i]);
-                    bandera++;
-                }
+				case 1:
+					if ($('#file').get(0).files.length === 0) {
+						showValidate(input[i]);
+						bandera++;
+					} 
+					break;
+				
+				default:
+					if (validate(input[i]) == false) {
+						showValidate(input[i]);
+						bandera++;
+					}
 
-            }
+				}
+			}
 
-        }
+			if (bandera != 0) {
+				return false;
+			}
+		} else {
+			for (var i = 0; i < input.length; i++) {
+				switch (i) {
+					case 0:
+						var fe = $('#date').val();
+						if (fe == null || fe == "") {
+							showValidate(input[i]);
+							bandera++;
+						} 
+						break;
+						
+					case 1:
+						if (validateCel(input[i]) == false) {
+							showValidate(input[i]);
+							bandera++;
+						}
+						break;
 
-        if (bandera != 0) {
-            return false;
-        }
+					case 2:
+						if ($('#file').get(0).files.length === 0) {
+							showValidate(input[i]);
+							bandera++;
+						} 
+						break;
+					
+					default:
+						if (validate(input[i]) == false) {
+							showValidate(input[i]);
+							bandera++;
+						}
 
+				}
+			}
+
+			if (bandera != 0) {
+				return false;
+			}
+		}
+		
+        
     });
 
     $('.validate-form-res .input100').each(function () {

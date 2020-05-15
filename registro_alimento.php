@@ -2,10 +2,10 @@
     session_start();
 
     if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-       //header("location: index.php"); //si no esta con login
-       //exit;
+       header("location: index.php"); //si no esta con login
+       exit;
     } else {
-    	include "registro_resc.php";
+    	include "registro_alim.php";
     }
 ?>
 
@@ -62,7 +62,7 @@
 				
 				<form class="login100-form-reg validate-form-res" 
 				action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" 
-				method="post">
+				enctype="multipart/form-data" method="POST">
 					
      				<label>Registre fecha de donación:</label>
 
@@ -89,8 +89,8 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese cantidad de donación">
-						<input class="input100" id="cantidad" name="cantidad" placeholder="Cantidad de donación"
-						type="number" pattern="[0-9]{3}" title="Ingrese sólo dígitos">
+						<input class="input100" id="cantidad" name="cantidad" placeholder="Cantidad de donación" min="1"
+						type="number" pattern="[0-9]{3}" title="Ingrese sólo dígitos mayores a 0">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-balance-scale" aria-hidden="true"></i>

@@ -59,7 +59,7 @@
 
 				<form class="login100-form-reg validate-form-adop" 
 				action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" 
-				method="post">
+				enctype="multipart/form-data" method="POST">
 					
      				<div class="wrap-input100 validate-input" data-validate = "Ingrese nombre(s)">
 						<input class="input100" type="text" id="nombre" name="nombre" placeholder="Nombre(s) del adoptante">

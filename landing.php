@@ -64,7 +64,7 @@
 
           <div>
             <h3>%M</h3>
-            <h4>Bolsas de croquetas</h4>
+            <h4>Donaciones</h4>
           </div>
 
           <div>
@@ -84,7 +84,7 @@
               </button>
 
               <button class="login100-form-btn">
-                <a href="">Registrar alimentos</a>
+                <a href="registro_alimento.php">Registrar alimentos</a>
               </button>
 
               <button class="login100-form-btn" id="button">
@@ -142,11 +142,11 @@
                 </button>
 
               <button class="login100-form-btn">
-                Borrar
+                Todos
               </button>
 
               <button class="login100-form-btn" id="closse">
-                Cancelar
+                Cerrar
               </button>
           </div>
         </form>
