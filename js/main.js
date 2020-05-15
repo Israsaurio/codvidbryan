@@ -122,6 +122,23 @@
             }
         }
     }
+	
+	
+	//funcion de verificación de solo numeros decimales en rescate
+    function validateMeses(input) {
+        if ($(input).attr('name') == 'edad') {
+            var tam = $('#edad').val();
+			var RE = /^\d*\.?\d*$/;
+			
+			if(tam == 0) {
+				return false;
+			} else {
+				if (!RE.test(tam)) {
+					return false;
+				}
+			}
+        }
+    }
 
     //funcion de verificacion de email y campos que no vayan vacíos
     function validate(input) {
@@ -171,8 +188,9 @@
             hideValidate(this);
         });
     });
+	
 
-    //validanto formulario de registro
+    //validanto formulario de registro de adopcion
     $('.validate-form-adop').on('submit', function () {
         var bandera = 0;
         for (var i = 0; i < input.length; i++) {
@@ -231,8 +249,6 @@
 
         }
 
-        console.log("band "+bandera);
-
         if (bandera != 0) {
             return false;
         }
@@ -250,6 +266,59 @@
             hideValidate(this);
         });
     });
+	
+	
+	
+	//validando formulario de registro de rescate
+    $('.validate-form-res').on('submit', function () {
+        var bandera = 0;
+        for (var i = 0; i < input.length; i++) {
+            switch (i) {
+            case 0:
+                var fe = $('#date').val();
+                if (fe == null || fe == "") {
+                    showValidate(input[i]);
+                    bandera++;
+                } 
+                break;
+
+            case 1:
+                if ($('#file').get(0).files.length === 0) {
+                    showValidate(input[i]);
+                    bandera++;
+                } 
+                break;
+            
+            default:
+                if (validate(input[i]) == false) {
+                    showValidate(input[i]);
+                    bandera++;
+                }
+
+            }
+
+        }
+
+        if (bandera != 0) {
+            return false;
+        }
+
+    });
+
+    $('.validate-form-res .input100').each(function () {
+        $(this).focus(function () {
+            hideValidate(this);
+        });
+    });
+
+    $('.validate-form-res .input100-form-btn-input').each(function () {
+        $(this).focus(function () {
+            hideValidate(this);
+        });
+    });
+	
+	
+	
 
     //cargar imagen
     $("#file").change(function () {
@@ -285,5 +354,17 @@
 		window.open("landing.php");
 		window.close();
 	});
+
+
+	//alertar de datos validos de registro rescate
+	$('#registrar').click(function(){
+		var txt;
+		if (confirm("¿Desea registrar?")) {
+			txt = "You pressed OK!";
+		} else {
+			return false;
+		}		
+	});
+
 
 })(jQuery);

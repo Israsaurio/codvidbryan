@@ -2,27 +2,20 @@
 
 	require_once "conexion.php";
 	
-	$fecha = $img = $tipoanimal = $edad_anio = $edad_meses = "";
+	$fecha = $alimento = $cantidad = "";
 
-	$fecha_e = $img_e = $tipoanimal_e = $edad_anio_e = $edad_meses_e = "";	
+	$fecha_e = $alimento_e = $cantidad_e = "";
 
 	//obteniendo datos del servidor
 	if($_SERVER["REQUEST_METHOD"] === "POST"){
                              
                 
-                if((trim($_POST["edades-anios"])) == null){
-                    $edad_anio_e="Ingrese edad en años aproximados";
+                if((trim($_POST["alimento-empaque"])) == null){
+                    $alimento_e="Ingrese el tipo de alimento";
                 } else {
-                    $edad_anio = trim($_POST["edades-anios"]);
+                    $alimento = trim($_POST["alimento-empaque"]);
                 }   
-               
-
-                if((trim($_POST["edades-meses"])) == null){
-                    $edad_meses_e="Ingrese edad en meses aproximados";
-                } else {
-                    $edad_meses = trim($_POST["edades-meses"]);
-                }  
-                
+                                       
 
                 if(empty(trim($_FILES["file"]["name"]))){
                     
@@ -30,7 +23,7 @@
 
 
                 if(empty(strtotime($_POST["date"]))){
-                    $fecha_e="Ingrese fecha de adopción";
+                    $fecha_e="Ingrese fecha de donación";
                 } else {
                     $fecha = strtotime($_POST["date"]);
                     $fecha = date("Y/m/d");

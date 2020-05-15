@@ -2,8 +2,8 @@
     session_start();
 
     if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-       header("location: index.php"); //si no esta con login
-       exit;
+       //header("location: index.php"); //si no esta con login
+       //exit;
     } else {
     	include "registro_resc.php";
     }
@@ -39,11 +39,11 @@
 						
 						<div class="ctn-form">
 							<div class="login100-form-title">
-								Registro de rescate
+								Registro de alimentos
 							</div>
 
 							<div class="login100-form-txt">
-								Gracias por dar una oportunidad de vida a nuestros animales!
+								Gracias por aportar con un granito de arena para nuestro animales!
 							</div>
 						</div>
 					
@@ -65,7 +65,7 @@
 				method="post">
 					
      				<label>Registre fecha de donación:</label>
-     				
+
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese fecha de adopción">
 						<input class="input100" type="date" id="date" name="date" placeholder="Fecha de adopción">
 						<span class="focus-input100"></span>
@@ -75,56 +75,27 @@
 					</div>
 
 
-					<div class="wrap-input100 validate-input" data-validate = "Seleccione tipo de animal">
-						<label for="animales">Seleccione tipo de animal:</label>
+					<div class="wrap-input100 validate-input" data-validate = "Seleccione tipo de donación">
+						<label for="donacion">Seleccione tipo de donación:</label>
 
 						<div>
-							<select class="custom-choice" name="especie">
-								<option value="Perro">Perro</option>
-						  		<option value="Gato">Gato</option>
+							<select class="custom-choice" name="alimento-empaque">
+								<option value="Bolsa">Bolsa</option>
+						  		<option value="Paquete">Paquete</option>
+						  		<option value="Libre">Libre</option>
 							</select>
 						</div>
 						
 					</div>
 
-					<label for="edad">Indique edad aproximada:</label>
-					<div style="display:block;">
-					        <select class="custom-choice-edad" name="edades-anios">
-					            <option value="0">0 años</option>
-					            <option value="1">1 años</option>
-					            <option value="2">2 años</option>
-					            <option value="3">3 años</option>
-					            <option value="4">4 años</option>
-					            <option value="5">5 años</option>
-					            <option value="6">6 años</option>
-					            <option value="7">7 años</option>
-					            <option value="8">8 años</option>
-					            <option value="9">9 años</option>
-					            <option value="10">10 años</option>
-					            <option value="11">11 años</option>
-					            <option value="12">12 años</option>
-					            <option value="13">13 años</option>
-					            <option value="14">14 años</option>
-					            <option value="15">15 años</option>
-					            <option value="16">16 años</option>
-					            <option value="17">17 años</option>
-					            <option value="18">18 años</option>
-					            <option value="19">19 años</option>
-					        </select>
+					<div class="wrap-input100 validate-input" data-validate = "Ingrese cantidad de donación">
+						<input class="input100" id="cantidad" name="cantidad" placeholder="Cantidad de donación"
+						type="number" pattern="[0-9]{3}" title="Ingrese sólo dígitos">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-balance-scale" aria-hidden="true"></i>
+						</span>
 
-					        <select class="custom-choice-edad" name="edades-meses">
-					            <option value="1">1 mes</option>
-					            <option value="2">2 meses</option>
-					            <option value="3">3 meses</option>
-					            <option value="4">4 meses</option>
-					            <option value="5">5 meses</option>
-					            <option value="6">6 meses</option>
-					            <option value="7">7 meses</option>
-					            <option value="8">8 meses</option>
-					            <option value="9">9 meses</option>
-					            <option value="10">10 meses</option>
-					            <option value="11">11 meses</option>
-					       </select>
 					</div>
 
 
@@ -132,7 +103,7 @@
 					
 					<div class="wrap-input100 validate-input" data-validate = "Cargue una imagen">
 						<input type="file" class="input100-form-btn-input" name="file" id="file" accept="image/*">
-						<label for="file" id="labelphoto" class="input100">Imagen del animal</label>
+						<label for="file" id="labelphoto" class="input100">Imagen de la donación</label>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-camera-retro" aria-hidden="true"></i>

@@ -80,7 +80,7 @@
               </button>
 
               <button class="login100-form-btn">
-                <a href="">Registrar rescate</a>
+                <a href="registro_rescate.php">Registrar rescate</a>
               </button>
 
               <button class="login100-form-btn">
