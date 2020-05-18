@@ -2,7 +2,7 @@
 
 	require_once "conexion.php";
 	
-	$nombre = $apellido = $celular = $ci = $email = $img = $fecha = $directorio = $nombre_img = $ruta = "";
+	$nombre = $apellido = $celular = $ci = $email = $img = $fecha = $directorio = $nombre_img = $ruta = $tipo_img = "";
 
 	$nombre_e = $apellido_e = $celular_e = $ci_e = $email_e = $img_e = $fecha_e = "";	
 
@@ -48,7 +48,9 @@
                 } else {
                     $directorio = $_SERVER['DOCUMENT_ROOT'].'/animalitos/img_adopciones/';
                     $nombre_img = $_FILES["file"]["name"];
-                    $ruta = $directorio.$nombre_img;
+                    //$tipo_img = $_FILES["file"]["type"];
+                    //$tipo_img = get_file_extension($_FILES["file"]["tmp_name"]);
+                    $ruta = $directorio;
                 }
 
 
@@ -60,7 +62,7 @@
                 }
 
                 //$fecha = date("Y/m/d");
-                 echo "Antes de grabar => ".$nombre_e." ".$apellido_e." ".$celular_e." ".$ci_e." ".$email_e." ,imagen=>".$img_e.", nombre imagen=>".$nombre_img;
+                 echo "Antes de grabar => ".$nombre_e." ".$apellido_e." ".$celular_e." ".$ci_e." ".$email_e." ,imagen=>".$img_e.", nombre imagen=>".$nombre_img.", tipo imagen=> ".$tipo_img;
 
                 if(empty($nombre_e) &&
                     empty($apellido_e) &&
@@ -82,10 +84,11 @@
                         $c = $celular;
                         $cc = $ci;
                         $mail = $email;
-                        $img = $ruta;
                         $fec = $fecha;
+                        $img = $ruta.$nombre.".png";
+                        
 
-                        move_uploaded_file($_FILES["file"]["tmp_name"],$ruta);
+                        move_uploaded_file($_FILES["file"]["tmp_name"],$ruta.$nombre.".png");
                               
                         if(mysqli_stmt_execute($stmt)){
                             header("location: landing.php");
@@ -103,7 +106,16 @@
     }
 	
 
-
+    function get_file_extension($file_name) {
+        //return substr(strrchr($file_name,'.'),4);
+        //return strtolower(pathinfo($file_name,PATHINFO_EXTENSION));
+        $val = exif_imagetype($file_name);
+        if($val == 1 || $val == 2){
+            return $val;
+        } else {
+            return ".error";
+        }
+    }
 
 	
 
