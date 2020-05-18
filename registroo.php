@@ -130,7 +130,7 @@
 
 					<div class="container-login100-form-btn">
 												
-						<input type="submit" value="Registrar">
+						<input type="submit" value="Registrar" id="registrar">
 						
 						<input type="submit" onclick="this.form.reset()" id="borrar" value="Borrar">
 						

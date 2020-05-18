@@ -26,6 +26,18 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="js/ddklick.js"></script>
+	<style>
+		.container{
+			width: 600px;
+			height: 100%;
+		}
+		select{
+			width: 100%;
+		}
+	</style>
+
 </head>
 	
 	<div class="limiter">
@@ -116,7 +128,7 @@
 
 
 					<div class="wrap-input100 validate-input" data-validate = "Cargue una imagen">
-						<input type="file" class="input100-form-btn-input" name="file" id="file" accept="image/x-png,image/gif,image/jpeg">
+						<input type="file" class="input100-form-btn-input" name="file" id="file" accept="image/x-png,imge/jpg,image/jpeg">
 						<label for="file" id="labelphoto" class="input100">Imagen del(a) adoptante</label>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -124,16 +136,52 @@
 						</span>
 					</div>
 
+
 					<div id="wrap-input100-img">
 						<img id="imagen_cargada" src="" />
 					</div>
+
+					<h5 class="label-adoptado">
+						Seleccione al animal que adoptará
+					</h5>
 						
+
+					<div class="wrap-input100 validate-input" data-validate = "Seleccione una imagen">
+						<!-- <select class="custom-choice" id="slick" name="slick"> -->
+						<div class="container">
+							<select name="" id="slick">
+							
+							<?php 
+								$dir_path="img_rescatados/";
+								$extension_array = array('png');
+
+								if(is_dir($dir_path)){
+									$files = scandir($dir_path);
+
+									for($i=0;$i<count($files);$i++){
+										
+										if($files[$i] != '.' && $files[$i] !='..'){
+											//echo "<option value='$files[$i]' data-description='$files[$i]' data-imagesrc='$dir_path$files[$i]'></option>";
+											echo "<option value='$files[$i]' data-description='$files[$i]' data-imagesrc='$dir_path$files[$i]'>$files[$i]</option>";
+										}
+									}
+
+								}
+							?>
+							
+							</select>
+						</div>	
+					</div>
+					<!--<div class="form-group">Animal: <span id="selected"></span></div>-->
+					<input class="input100" type="text" id="nombreanimal" name="nombreanimal">
+					
+				
 					
 
 
 
 					<div class="container-login100-form-btn">
-						<input type="submit" value="Registrar">
+						<input type="submit" value="Registrar" id="registrar">
 						<input type="submit" onclick="this.form.reset()" id="borrar" value="Borrar">
 						<input type="submit" id="cerrar_reg_adop" value="Cancelar">
 					</div>
@@ -163,8 +211,6 @@
 	
 	
 
-	
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<script src="vendor/bootstrap/js/popper.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="vendor/select2/select2.min.js"></script>
@@ -172,7 +218,19 @@
 	<script >
 		$('.js-tilt').tilt({
 			scale: 1.1
-		})
+		});
+	</script>
+	<script>
+		$('#slick').ddslick({
+			width: "100%",
+			height: "100%",
+			imagePosition: "left",
+			selectText: "Seleccione al futuro adoptado",
+			onSelected: function(data){
+				//$('#selected').html(data.selectedData.value);
+				$("#nombreanimal").val(data.selectedData.value);
+			}
+		});
 	</script>
 	<script src="js/main.js"></script>
 </html>

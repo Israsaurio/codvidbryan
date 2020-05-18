@@ -362,6 +362,16 @@ iframe {
     display: block;
 }
 
+
+.label-adoptado{
+    margin: 10px;
+}
+
+.image-picker{
+    width: 100px;
+    height: 100px;
+}
+
 /*---------------------------------------------*/
 .wrap-input100 {
   position: relative;

@@ -9,11 +9,7 @@
 	//obteniendo datos del servidor
 	if($_SERVER["REQUEST_METHOD"] === "POST"){
                              
-                echo "alimnento: ".trim($_POST["alimento-empaque"]);
-                echo " cantidad: ".trim($_POST["cantidad"]);
-                echo " fecha: ".trim($_POST["date"]);
-                echo " imagen: ".(($_FILES["file"]["name"]));
-                
+                               
                 if((trim($_POST["alimento-empaque"])) == null){
                     $alimento_e="Ingrese el tipo de alimento";
                 } else {
@@ -59,8 +55,11 @@
                         $fec = $fecha;
                         $don = $alimento;
                         $can = $cantidad;
-                        $im = $directorio;
-                        move_uploaded_file($_FILES['file']['tmp_name'],$directorio.$nombre_img);
+                        $im = $directorio.$alimento.$nombre_img.".png";
+
+
+                        move_uploaded_file($_FILES['file']['tmp_name'],
+                            $directorio.$alimento.$nombre_img.".png");
 
                               
                         if(mysqli_stmt_execute($stmt)){

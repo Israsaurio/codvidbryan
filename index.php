@@ -102,38 +102,6 @@
 	
 
 
-	<!--
-	<div class="bg-modal">
-    <div class="modal-content">
-      <div class="close_x">+</div>
-      <h6>Recupere su contraseña</h6>
-      <div class="Footer-pic">
-		 <img src="images/inicio.png" alt="Amor Animal">
-	  </div>
-
-      <form id="resset">
-
-        <div class="wrap-input100 validate-input">
-        <input class="input100" type="password" name="passs" placeholder="Ingrese su correo electrónico">
-        <span class="focus-input100"></span>
-        <span class="symbol-input100">
-          <i class="fa fa-envelope" aria-hidden="true"></i>
-        </span>
-        </div>
-
-        <div class="container-login100-form-btn">
-            
-			<input type="submit" name="submit_2" id="submit_2" value="Enviar">
-			<input type="submit" id="clossse" value="Cancelar">
-
-        </div>
-      </form>
-	<script src="js/main.js"></script>
-	<script src="js/search_langing_page.js"></script>
-
-    </div>
-	</div> -->
-
 </body>
 
 

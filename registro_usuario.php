@@ -110,11 +110,11 @@
                         $cc = $ci;
                         $mail = $email;
                         $pa = password_hash($pass, PASSWORD_DEFAULT); //cifrado de contraseña
-                        $img = $directorio.$nombre_img;
+                        $img = $directorio.$nombre.".png";
                         $fec = $fecha;
                         $ba = $band_adm_ind;  
 
-                        move_uploaded_file($_FILES['file']['tmp_name'],$directorio.$nombre_img);
+                        move_uploaded_file($_FILES['file']['tmp_name'],$directorio.$nombre.".png");
       
                         if(mysqli_stmt_execute($stmt)){
                             header("location: index.php");
