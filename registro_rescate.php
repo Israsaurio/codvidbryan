@@ -64,7 +64,7 @@
 				action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" 
 				enctype="multipart/form-data" method="POST">
 					
-     				<label>Registre fecha de donación:</label>
+     				<label>Registre fecha de rescate:</label>
      				
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese fecha de adopción">
 						<input class="input100" type="date" id="date" name="date" placeholder="Fecha de adopción">

@@ -97,7 +97,7 @@
 
 
 					<div class="wrap-input100 validate-input" data-validate = "Cargue una imagen">
-						<input type="file" class="input100-form-btn-input" name="file" id="file" accept="image/x-png,image/gif,image/jpeg">
+						<input type="file" class="input100-form-btn-input" name="file" id="file" accept="image/*">
 						<label for="file" id="labelphoto" class="input100">Imagen del(a) adoptante</label>
 						<span class="symbol-input100">
 							<i class="fa fa-camera-retro" aria-hidden="true"></i>

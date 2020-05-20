@@ -6,6 +6,7 @@
         exit;
     } else {
     	include "registro_adop.php";
+   		require_once "conexion.php";
 
     }
 ?>
@@ -129,7 +130,7 @@
 
 
 					<div class="wrap-input100 validate-input" data-validate = "Cargue una imagen">
-						<input type="file" class="input100-form-btn-input" name="file" id="file" accept="image/*">
+						<input type="file" class="input100-form-btn-input" name="file" id="file" accept="image/x-png,imge/jpg,image/jpeg">
 						<label for="file" id="labelphoto" class="input100">Imagen del(a) adoptante</label>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -148,68 +149,34 @@
 						
 
 					<div class="wrap-input100 validate-input" data-validate = "Seleccione una imagen">
+						<!-- <select class="custom-choice" id="slick" name="slick"> -->
 						<div class="container">
 							<select name="" id="slick">
 							
 							<?php 
 								$dir_path="img_rescatados/";
-
-								if(file_exists($dir_path)){
-									if(!dir_is_empty($dir_path)){
-										$extension_array = array('png');
-
-										if(is_dir($dir_path)){
-											$files = scandir($dir_path);
-
-											for($i=0;$i<count($files);$i++){
-												if($files[$i] != '.' && $files[$i] !='..'){
-													echo "<option value='$files[$i]' data-description='$files[$i]' data-imagesrc='$dir_path$files[$i]'>$files[$i]</option>";
-												}
-											}
-										}
-									} else {
-										echo "<h1>Sin animales rescatados</h1>";
-									}
-								} else {
-									echo "<h1>No existe animales rescatados</h1>";
-								}
-
-								/*$extension_array = array('png');
+								$extension_array = array('png');
 
 								if(is_dir($dir_path)){
 									$files = scandir($dir_path);
 
 									for($i=0;$i<count($files);$i++){
+										
 										if($files[$i] != '.' && $files[$i] !='..'){
+											//echo "<option value='$files[$i]' data-description='$files[$i]' data-imagesrc='$dir_path$files[$i]'></option>";
 											echo "<option value='$files[$i]' data-description='$files[$i]' data-imagesrc='$dir_path$files[$i]'>$files[$i]</option>";
 										}
 									}
-									
 
-								}*/
-
-								function dir_is_empty($dir) {
-								  $handle = opendir($dir);
-								  while (false !== ($entry = readdir($handle))) {
-								    if ($entry != "." && $entry != "..") {
-								      closedir($handle);
-								      return FALSE;
-								    }
-								  }
-								  closedir($handle);
-								  return TRUE;
 								}
-			                    
 							?>
 							
 							</select>
 						</div>	
 					</div>
-					
 
-					<input class="input100" type="hidden" id="nombreanimal" name="nombreanimal">
+					<input class="input100" type="text" id="nombreanimal" name="nombreanimal">
 					
-				
 					<div class="container-login100-form-btn">
 						<input type="submit" value="Registrar" id="registrar">
 						<input type="submit" onclick="this.form.reset()" id="borrar" value="Borrar">

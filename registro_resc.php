@@ -54,28 +54,30 @@
                     empty($fecha_e)){
 
 
-                    $sql = "INSERT INTO rescate (f3ch4, 4n1m4l, 3d4dA, 3d4dM, f0t0) VALUES (?,?,?,?,?)";
+                    $sql = "INSERT INTO rescate (f3ch4, 4n1m4l, 3d4dA, 3d4dM, f0t0, 4d0pt4d0, c0d1g0) VALUES (?,?,?,?,?,?,?)";
 
                     if($stmt = mysqli_prepare($con, $sql)){
-                        mysqli_stmt_bind_param($stmt, "sssss", $fec, $ani, $eda, $edm, $im);
+                        mysqli_stmt_bind_param($stmt, "sssssss", $fec, $ani, $eda, $edm, $im, $ad, $c);
                 
                         $fec = $fecha;
                         $ani = $tipoanimal;
                         $eda = $edad_anio;
                         $edm = $edad_meses;
-                        $im = $directorio.$nombre_img;
+                        $im = $nombre_img.".png";
+                        $ad = "0";
+                        $c = uniqid();
                             
-                        move_uploaded_file($_FILES["file"]["tmp_name"],$directorio.$nombre_img);
+                        if(!file_exists($directorio)){
+                            mkdir($directorio);
+                        }
+                        move_uploaded_file($_FILES["file"]["tmp_name"],$directorio.$nombre_img.".png");
 
                         if(mysqli_stmt_execute($stmt)){
-                           
-                            header("location: landing.php");
+                            header("refresh:0; url=landing.php");
                         } else {
                             echo "Algo salió mal, intentalo una vez más";
                         }
                     }
-
-
                 } else {
                     echo ".-'-> algo va mal ";
                 }

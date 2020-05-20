@@ -400,7 +400,7 @@
 	//alertar de datos validos de registro rescate
 	$('#registrar').click(function(){
 		var txt;
-		if (confirm("¿Desea registrar?")) {
+		if (confirm("Si los datos son correctos, se procederá a guardarlos e ir a la pagina principal, ¿desea continuar?")) {
 			txt = "You pressed OK!";
 		} else {
 			return false;
