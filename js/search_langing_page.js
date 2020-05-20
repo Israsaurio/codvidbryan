@@ -7,11 +7,20 @@ $(document).ready(function(){
 
     });
 	
+	$("#button_codigo").click(function(){
+		document.querySelector(".bg-modal2").style.display = "flex";
+	});
+	
 	$(".close").click(function(){
 		document.querySelector(".bg-modal").style.display = "none";
 		document.querySelector(".container-login100-form-btn").style.display = "flex";
 		document.querySelector(".login100-form-title2").style.display = "flex";
 
+	});
+	
+	$(".close2").click(function(){
+		document.querySelector(".bg-modal2").style.display = "none";
+		
 	});
 	
 	$(".close_x").click(function(){

@@ -6,7 +6,7 @@
         exit;
     } else {
     	include "registro_adop.php";
-
+    	require_once "conexion.php";
     }
 ?>
 
@@ -174,20 +174,7 @@
 									echo "<h1>No existe animales rescatados</h1>";
 								}
 
-								/*$extension_array = array('png');
-
-								if(is_dir($dir_path)){
-									$files = scandir($dir_path);
-
-									for($i=0;$i<count($files);$i++){
-										if($files[$i] != '.' && $files[$i] !='..'){
-											echo "<option value='$files[$i]' data-description='$files[$i]' data-imagesrc='$dir_path$files[$i]'>$files[$i]</option>";
-										}
-									}
-									
-
-								}*/
-
+								
 								function dir_is_empty($dir) {
 								  $handle = opendir($dir);
 								  while (false !== ($entry = readdir($handle))) {

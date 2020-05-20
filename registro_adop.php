@@ -118,7 +118,7 @@
                             $cc = $ci;
                             $mail = $email;
                             $fec = $fecha;
-                            $img = $ruta.$nombre.$apellido.$ci.$hash.".png";
+                            $img = $nombre.$apellido.$ci.$hash.".png";
                             $img2 = $img_animal;
                             $cd = $codigo_unico;
 

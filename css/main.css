@@ -166,8 +166,18 @@ button {
 	background: transparent;
 }
 
+button2 {
+    outline: none !important;
+    border: none;
+    background:  transparent;
+}
+
 button:hover {
 	cursor: pointer;
+}
+
+button2:hover {
+    cursor: pointer;
 }
 
 iframe {
@@ -655,7 +665,30 @@ texto de error */
     margin-left: 5%;
 }
 
+/***************************/
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #4CAF50;
+  color: white;
+}
+/***********************************/
 
 /*****************************************
 Inicio Landing
@@ -770,8 +803,32 @@ Inicio Landing
     z-index: 1;
 }
 
+
+.bg-modal2 {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    top: 0;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    z-index: 1;
+}
+
 .modal-content {
     width: 500px;
+    height: auto;
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.modal-content2 {
+    width: 100%;
     height: auto;
     background-color: white;
     border-radius: 20px;
@@ -791,6 +848,16 @@ Inicio Landing
 }
 
 .close {
+    position: absolute;
+    top: 0;
+    right: 14px;
+    font-size: 40px;
+    transform: rotate(45deg);
+    cursor: pointer;
+    color: red;
+}
+
+.close2 {
     position: absolute;
     top: 0;
     right: 14px;

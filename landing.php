@@ -5,6 +5,8 @@
         header("location: index.php");
         exit;
     }
+    require_once "conexion.php";
+
 ?>
 
 
@@ -110,7 +112,13 @@
     <script src="vendor/jquery/jquery.countdown.min.js"></script>
     <script src="vendor/jquery/main.js"></script>
 
-   
+    <script>
+      function getValor() {
+        var x = document.getElementById("id").value;
+        //document.getElementById("demo").innerHTML = x;
+        return x;
+      }
+    </script>
    
 
 
@@ -127,31 +135,139 @@
 
         <form action="#">
 
-        <div class="wrap-input100 validate-input">
-        <input class="input100" type="password" name="pass" placeholder="Identificación de mascota">
-        <span class="focus-input100"></span>
-        <span class="symbol-input100">
-          <i class="fa fa-sort-numeric-asc" aria-hidden="true"></i>
-        </span>
-        </div>
-          
+          <div class="wrap-input100 validate-input">
+          <input class="input100" type="text" name="pass" placeholder="Identificación de mascota" id="id">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+            <i class="fa fa-sort-numeric-asc" aria-hidden="true"></i>
+          </span>
+          </div>
+            
 
-          <div class="container-login100-form-btn">
-                <button class="login100-form-btn">
+            <div class="container-login100-form-btn">
+                <button class="login100-form-btn" id="button_codigo">
                   Buscar
                 </button>
-
-              <button class="login100-form-btn">
-                Todos
-              </button>
-
-              <button class="login100-form-btn" id="closse">
-                Cerrar
-              </button>
-          </div>
+                  
+                <button class="login100-form-btn">
+                   <a href="lista_todos.php">Todos</a>
+                </button>
+                
+                <button class="login100-form-btn" id="closse">
+                  Cerrar
+                </button>
+            </div>
         </form>
 
 
       </div>
+
+
+      <div class="bg-modal2">
+        <div class="modal-content2">
+          <div class="close2">+</div>
+          <div class="login100-form-title">
+            Seguimiento de adopción
+          </div>
+
+          <table id="customers">
+            <tr>
+                <th>Nombre y apellido</th>
+                <th>Celular</th>
+                <th>Correo</th>
+                <th>Fecha de adopción</th>
+                <th>Adoptado</th>
+                <th>Adoptante</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </table>
+            <!-- aqui empieza la busqueda -->
+            <!--<?php 
+                    $dir_path="img_adopciones/adoptados/";
+                    $dir_path2="img_adopciones/adoptantes/";
+
+                    $sql = "SELECT * FROM adoptante";
+                    $result = $con->query($sql);
+                    
+                    if(file_exists($dir_path) && file_exists($dir_path2)){
+                      if(!dir_is_empty($dir_path) && !dir_is_empty($dir_path2)){
+                        $extension_array = array('png');
+
+                        if(is_dir($dir_path) && is_dir($dir_path2)){
+                          $files = scandir($dir_path);
+                          $files2 = scandir($dir_path2);
+
+                          if((count($files)-2) == $result->num_rows && (count($files2)-2) == $result->num_rows){
+
+                            while($columna = $result->fetch_assoc()){
+                              echo "<tr>";
+                                echo "<td>".$columna['n0mbr3s']." ".$columna['4p3ll1d0s']."</td>";
+                                echo "<td>".$columna['c3lul4r']."</td>";
+                                echo "<td>".$columna['3m41l']."</td>";
+                                echo "<td>".$columna['f3ch4']."</td>";
+                                //echo "<th><img src=$dir_path$files[$var] width=150px height=100px></th>";
+
+                                for($i=0;$i<count($files);$i++){
+                                  if($files[$i] != '.' && $files[$i] !='..'){
+                                    if($columna['c0d1g0_4d0p4d0'].".png" == $files[$i]){
+                                      echo "<td><img src=$dir_path$files[$i] width=150px height=100px></td>";
+                                      //echo "<td><img src=$dir_path$files[$i] width=150px height=100px></td>";
+                                    }
+                                  }
+                                } 
+
+
+                                for($i=0;$i<count($files2);$i++){
+                                  if($files2[$i] != '.' && $files2[$i] !='..'){
+                                    if(strcmp($columna['1m4g3n'], basename($files2[$i]))==0){
+                                      echo "<td><img src=$dir_path2$files2[$i] width=150px height=100px></td>";
+                                      //echo "<td><img src=$dir_path$files[$i] width=150px height=100px></td>";
+                                    } 
+                                  }
+                                } 
+
+                              echo "</tr>";
+                            }
+                          
+                          } else {
+                            //echo "archivos=>".(count($files) - 2);
+                            //echo "base de datos=>".$result->num_rows;
+                          }
+                        }
+                      } 
+                    } 
+
+                    
+                    function dir_is_empty($dir) {
+                      $handle = opendir($dir);
+                      while (false !== ($entry = readdir($handle))) {
+                        if ($entry != "." && $entry != "..") {
+                          closedir($handle);
+                          return FALSE;
+                        }
+                      }
+                      closedir($handle);
+                      return TRUE;
+                    }
+                  ?>-->
+            <!-- aqui termina la busqueda -->
+
+
+
+
+
+        
+
+          </div>
+      </div>
+
+
 
   </html>
